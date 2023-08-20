@@ -6,28 +6,43 @@ using UnityEngine.UIElements;
 
 public class Cube : MonoBehaviour
 {
-    int numberOfTimes = 5;
-    string nameOfTheKey = "Enter";
+    float horizontalMovement = 5f;
+    float verticalMovement = 5f;
+
+    public Rigidbody2D rigidbody2D;
 
     void Start()
     {
         Debug.Log("If you press the up arrow you will JUMP!!");
-        Debug.Log("If you press the right arrow " + numberOfTimes + "you will MOVE!!");
-        Debug.Log("If you press the " + nameOfTheKey + "nothing will happen");
+        Debug.Log("If you press the right or left arrow you will move horizontally");
+        Debug.Log("If you press down will you fall if you are too high");
         Debug.Log("If you smash the keyboard nothing happens, you will just cry");
     }
 
     // Update is called once per frame
     void Update()
     {
-       if(Input.GetKeyDown(KeyCode.UpArrow)) {
-        Debug.Log("Moving Up");
-       } else if(Input.GetKeyDown(KeyCode.RightArrow)) { 
-        Debug.Log("Moving to the right");
-       } else if(Input.GetKeyDown(KeyCode.DownArrow)) { 
-        Debug.Log("Moving down");
-       } else if(Input.GetKeyDown(KeyCode.LeftArrow)) { 
-        Debug.Log("Moving to the left");
-       }
+
+        float newXValue = 0.0f;
+        float newYValue = 0.0f;
+
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            Debug.Log("Moving Up");
+            newYValue += verticalMovement;
+        }
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            newXValue += horizontalMovement;
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            newYValue -= verticalMovement;
+        }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            newXValue -= horizontalMovement;
+        }
+        rigidbody2D.velocity = new Vector2(newXValue, newYValue);
     }
 }
