@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60ebef284ac1b874ca56de2f26840584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody2D: {fileID: 0}
+  myRigidBody: {fileID: 1364561191}
 --- !u!212 &1364561193
 SpriteRenderer:
   m_ObjectHideFlags: 0

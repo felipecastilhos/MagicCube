@@ -6,10 +6,10 @@ using UnityEngine.UIElements;
 
 public class Cube : MonoBehaviour
 {
-    float horizontalMovement = 5f;
-    float verticalMovement = 5f;
+    readonly float horizontalMovement = 5f;
+    readonly float verticalMovement = 5f;
 
-    public Rigidbody2D rigidbody2D;
+    public Rigidbody2D myRigidBody;
 
     void Start()
     {
@@ -22,11 +22,11 @@ public class Cube : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        movementDetection();
-        screenboundsPrinter();
+        MovementDetection();
+        ScreenboundsPrinter();
     }
 
-    void movementDetection()
+    void MovementDetection()
     {
         float newXValue = 0.0f;
         float newYValue = 0.0f;
@@ -48,10 +48,10 @@ public class Cube : MonoBehaviour
             newXValue -= horizontalMovement;
         }
 
-        rigidbody2D.velocity = new Vector2(newXValue, newYValue);
+        myRigidBody.velocity = new Vector2(newXValue, newYValue);
     }
 
-    void screenboundsPrinter()
+    void ScreenboundsPrinter()
     {
         Resolution screenbounds = Screen.currentResolution;
         float verticalLimits = 4.6f;
