@@ -22,11 +22,14 @@ public class Cube : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        movementDetection();
+        screenboundsPrinter();
+    }
 
+    void movementDetection()
+    {
         float newXValue = 0.0f;
         float newYValue = 0.0f;
-
-        Resolution screenbounds = Screen.currentResolution;
 
         if (Input.GetKey(KeyCode.UpArrow))
         {
@@ -46,14 +49,21 @@ public class Cube : MonoBehaviour
         }
 
         rigidbody2D.velocity = new Vector2(newXValue, newYValue);
+    }
 
-        if (transform.position.x > 9.5 || transform.position.x < -9.5)
+    void screenboundsPrinter()
+    {
+        Resolution screenbounds = Screen.currentResolution;
+        float verticalLimits = 4.6f;
+        float horizontalLimits = 9.5f;
+        if (transform.position.x > horizontalLimits || transform.position.x < horizontalLimits)
         {
             Debug.Log("Screenbounds:" + screenbounds.width);
             Debug.Log("The cube is out of the screen bounds");
         }
-        
-        if(transform.position.y > 4.6 || transform.position.y < -4.6) {
+
+        if (transform.position.y > verticalLimits || transform.position.y < -verticalLimits)
+        {
             Debug.Log("The cube is out of the screen bounds");
         }
     }
