@@ -28,27 +28,15 @@ public class Cube : MonoBehaviour
 
     void MovementDetection()
     {
-        float newXValue = 0.0f;
-        float newYValue = 0.0f;
+        if (Input.anyKey)
+        {
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
 
-        if (Input.GetKey(KeyCode.UpArrow))
-        {
-            newYValue += verticalMovement;
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            newXValue += horizontalMovement;
-        }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            newYValue -= verticalMovement;
-        }
-        if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            newXValue -= horizontalMovement;
-        }
+            Vector2 movementDirection = new Vector2(horizontalInput, verticalInput).normalized;
 
-        myRigidBody.velocity = new Vector2(newXValue, newYValue);
+            if (movementDirection.sqrMagnitude > 0) myRigidBody.velocity = movementDirection * Mathf.Max(Mathf.Abs(horizontalMovement), Mathf.Abs(verticalMovement));
+        }
     }
 
     void ScreenboundsPrinter()
@@ -68,7 +56,8 @@ public class Cube : MonoBehaviour
         }
     }
 
-    public void PrintFromOutside() { 
+    public void PrintFromOutside()
+    {
         Debug.Log("Cube is being controlled from misterious forces.");
     }
 }
