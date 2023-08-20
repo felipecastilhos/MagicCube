@@ -1,4 +1,6 @@
 # MagicCube
+This is a debug screen for a plataform game.
+
 ### How to setup it:
 
 - Unity version (2021.3.22f1)
