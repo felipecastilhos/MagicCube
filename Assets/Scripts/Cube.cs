@@ -26,16 +26,17 @@ public class Cube : MonoBehaviour
         float newXValue = 0.0f;
         float newYValue = 0.0f;
 
+        Resolution screenbounds = Screen.currentResolution;
+
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            Debug.Log("Moving Up");
             newYValue += verticalMovement;
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
             newXValue += horizontalMovement;
         }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow))
         {
             newYValue -= verticalMovement;
         }
@@ -43,6 +44,17 @@ public class Cube : MonoBehaviour
         {
             newXValue -= horizontalMovement;
         }
+
         rigidbody2D.velocity = new Vector2(newXValue, newYValue);
+
+        if (transform.position.x > 9.5 || transform.position.x < -9.5)
+        {
+            Debug.Log("Screenbounds:" + screenbounds.width);
+            Debug.Log("The cube is out of the screen bounds");
+        }
+        
+        if(transform.position.y > 4.6 || transform.position.y < -4.6) {
+            Debug.Log("The cube is out of the screen bounds");
+        }
     }
 }
