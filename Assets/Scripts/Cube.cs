@@ -56,7 +56,7 @@ public class Cube : MonoBehaviour
         Resolution screenbounds = Screen.currentResolution;
         float verticalLimits = 4.6f;
         float horizontalLimits = 9.5f;
-        if (transform.position.x > horizontalLimits || transform.position.x < horizontalLimits)
+        if (transform.position.x > horizontalLimits || transform.position.x < -horizontalLimits)
         {
             Debug.Log("Screenbounds:" + screenbounds.width);
             Debug.Log("The cube is out of the screen bounds");
@@ -66,5 +66,9 @@ public class Cube : MonoBehaviour
         {
             Debug.Log("The cube is out of the screen bounds");
         }
+    }
+
+    public void PrintFromOutside() { 
+        Debug.Log("Cube is being controlled from misterious forces.");
     }
 }
