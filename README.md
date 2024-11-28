@@ -1,9 +1,10 @@
 # MagicCube
 This project has been **ARCHIEVED**
 
-This was just a tooling to quickly prototype ideas around a plataformer game.
+This was just an framework/tooling to quickly prototype ideas around a plataformer game with Unity.
 
 --
+
 This is a debug screen for a plataform game.
 
 ### How to setup it:
