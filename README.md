@@ -1,4 +1,9 @@
 # MagicCube
+This project has been **ARCHIEVED**
+
+This was just a tooling to quickly prototype ideas around a plataformer game.
+
+--
 This is a debug screen for a plataform game.
 
 ### How to setup it:
